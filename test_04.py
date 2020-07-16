@@ -15,12 +15,12 @@ c = pva.Channel('2bmbSP1:Pva1:Image')
 pv1 = c.get('')
 pv1d = pv1.getStructureDict()
 print(pv1d)
+# pv1['descriptor'] = 'test'
 
-pv2 = pva.PvObject(pv1d)
+print(pv1['descriptor'])
+# print(pv1d['timeStamp.secondsPastEpoch'])
+print(pv1['uniqueId'])
+print(pv1['display.limitLow'])
 
-image = np.random.randint(0, 255, 3145728, dtype=np.uint8)
-pv2['value'] = ({'ubyteValue' : image},)
-
-s = pva.PvaServer('AdImage', pv2)
 
 
